@@ -1,8 +1,12 @@
 # Smart Pointers
 
-A pointer is a general concept for a variable that contains a memory address. This address refers to, or “points at,” some other data. While pointers are a powerful feature, they can also be a source of bugs and security vulnerabilities. For example, a pointer can reference an unassigned memory cell, which means that attempting to access the data at that address would cause the program to crash, making it unprovable. To prevent such issues, Cairo uses _Smart Pointers_.
+A pointer is a general concept for a variable that contains a memory address. This address refers to, or “points at,” some other data. While they are a powerful feature, they can also be a source of bugs and security vulnerabilities. For example, a pointer can reference an unassigned memory cell, which means attempts to access data at that address would crash the program, making it unprovable.
 
-Smart pointers are data structures that act like a pointer, but also have additional metadata and capabilities. The concept of smart pointers isn’t unique to Cairo: smart pointers originated in C++ and exist in other languages like Rust as well. In the specific case of Cairo, smart pointers ensure that memory is not addressed in an unsafe way that could cause a program to be unprovable, by providing a safe way to access memory through strict type checking and ownership rules.
+To prevent such issues, Cairo uses _Smart Pointers_.
+
+Smart pointers are data structures that act like a pointer, but also have additional metadata and capabilities.
+
+The concept of "smart pointers" has been around and isn’t unique to Cairo. They originated in C++ and exist in other languages like Rust as well. In Cairo, smart pointers are utilised to provide a safe way to access memory, through strict type checking and ownership rules. This helps to ensure that memory is not addressed in an unsafe way, which could cause a program to be unprovable.
 
 Though we didn’t call them as such at the time, we’ve already encountered a few smart pointers in this book, including `Felt252Dict<T>` and `Array<T>` in Chapter 3. Both these types count as smart pointers because they own a memory segment and allow you to manipulate it. They also have metadata and extra capabilities or guarantees. Arrays keep track of their current length to ensure that existing elements are not overwritten, and that new elements are only appended to the end.
 
